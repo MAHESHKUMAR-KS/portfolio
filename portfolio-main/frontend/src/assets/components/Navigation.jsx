@@ -6,6 +6,7 @@ import GooeyNav from "./GooeyNav";
 
 const Navigation = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [activeId, setActiveId] = useState('home');
 
   const navRef = useRef(null);
 
@@ -13,6 +14,42 @@ const Navigation = () => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const sectionIds = [
+      'home',
+      'about',
+      'projects',
+      'achievements',
+      'certifications',
+      'stats',
+      'contact',
+    ];
+    const sections = sectionIds
+      .map(id => document.getElementById(id))
+      .filter(Boolean);
+
+    if (sections.length === 0) return;
+
+    const observer = new IntersectionObserver(
+      entries => {
+        const visible = entries
+          .filter(e => e.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+        if (visible[0]?.target?.id) {
+          setActiveId(visible[0].target.id);
+        }
+      },
+      {
+        root: null,
+        rootMargin: "-20% 0px -60% 0px",
+        threshold: [0.1, 0.25, 0.5, 0.75, 1],
+      }
+    );
+
+    sections.forEach(sec => observer.observe(sec));
+    return () => observer.disconnect();
   }, []);
 
   const navLinks = [
@@ -52,7 +89,7 @@ const Navigation = () => {
 
             {/* Right: Navigation Links */}
             <div className="flex items-center gap-8">
-              <GooeyNav items={navLinks} initialActiveIndex={0} />
+              <GooeyNav items={navLinks} initialActiveIndex={0} activeId={activeId} />
 
               {/* Resume Button */}
               <a

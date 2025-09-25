@@ -4,6 +4,7 @@ import Navigation from './assets/components/Navigation';
 import Home from './assets/components/Home';
 import About from './assets/components/About';
 import Particles from './assets/components/Particles';
+import Projects from './assets/components/Projects';
 // import Hero from './sections/Hero/Hero';
 // import About from './sections/About/About';
 // import Projects from './sections/Projects/Projects';
@@ -41,6 +42,7 @@ function App() {
         {/* Render sections inline for single-page navigation */}
         <Home />
         <About />
+        <Projects />
         {/* Future sections: Projects, Achievements, Certifications, Stats, Contact */}
       </div>
     </div>

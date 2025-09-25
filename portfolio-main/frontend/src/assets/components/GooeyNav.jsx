@@ -8,13 +8,15 @@ const GooeyNav = ({
   particleR = 100,
   timeVariance = 300,
   colors = [1, 2, 3, 1, 2, 3, 1, 4],
-  initialActiveIndex = 0
+  initialActiveIndex = 0,
+  activeId
 }) => {
   const containerRef = useRef(null);
   const navRef = useRef(null);
   const filterRef = useRef(null);
   const textRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(initialActiveIndex);
+  const lastTriggeredRef = useRef(null);
 
   const noise = (n = 1) => n / 2 - Math.random() * n;
   const getXY = (distance, pointIndex, totalPoints) => {
@@ -88,6 +90,7 @@ const GooeyNav = ({
     if (activeIndex === index) return;
     setActiveIndex(index);
     updateEffectPosition(liEl);
+    lastTriggeredRef.current = items[index]?.id;
     if (filterRef.current) {
       const particles = filterRef.current.querySelectorAll('.particle');
       particles.forEach(p => filterRef.current.removeChild(p));
@@ -117,6 +120,32 @@ const GooeyNav = ({
       }
     }
   };
+  useEffect(() => {
+    if (!activeId) return;
+    const idx = items.findIndex(it => it.id === activeId);
+    if (idx !== -1 && idx !== activeIndex) {
+      setActiveIndex(idx);
+      const li = navRef.current?.querySelectorAll('li')[idx];
+      if (li) updateEffectPosition(li);
+      if (lastTriggeredRef.current === activeId) {
+        // Skip duplicate animation immediately after a click-trigger
+        lastTriggeredRef.current = null;
+      } else {
+        if (filterRef.current) {
+          const particles = filterRef.current.querySelectorAll('.particle');
+          particles.forEach(p => filterRef.current.removeChild(p));
+        }
+        if (textRef.current) {
+          textRef.current.classList.remove('active');
+          void textRef.current.offsetWidth;
+          textRef.current.classList.add('active');
+        }
+        if (filterRef.current) {
+          makeParticles(filterRef.current);
+        }
+      }
+    }
+  }, [activeId, items, activeIndex]);
   useEffect(() => {
     if (!navRef.current || !containerRef.current) return;
     const activeLi = navRef.current.querySelectorAll('li')[activeIndex];
