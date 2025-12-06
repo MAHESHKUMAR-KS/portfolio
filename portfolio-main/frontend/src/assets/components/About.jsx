@@ -5,7 +5,7 @@ import LogoLoop from './logoloop';
 const About = () => {
   const [selectedSkill, setSelectedSkill] = useState(null);
 
-  // Smooth slide-from-right + fade variants for description
+  
   const descriptionContainer = {
     hidden: {},
     show: {
