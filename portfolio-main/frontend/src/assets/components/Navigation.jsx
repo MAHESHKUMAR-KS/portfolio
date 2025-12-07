@@ -66,7 +66,7 @@ const Navigation = () => {
     <>
       <nav
         ref={navRef}
-        className="fixed top-0 left-0 w-full z-50 bg-black py-5"
+        className="fixed top-0 left-0 w-full z-50 bg-transparent py-5"
       >
         <div className="container mx-auto px-6">
           <div className="flex items-center justify-between">
