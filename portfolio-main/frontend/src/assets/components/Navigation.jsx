@@ -56,8 +56,8 @@ const Navigation = () => {
     { id: "home", label: "Home", to: "#home" },
     { id: "about", label: "About", to: "#about" },
     { id: "projects", label: "Projects", to: "#projects" },
-    { id: "achievements", label: "Achievements", to: "#achievements" },
-    { id: "certifications", label: "Certifications", to: "#certifications" },
+    { id: "certifications", label: "Certifications", to: "#certification" },
+    { id: "achivements", label: "Achivements", to: "#achivements" },
     { id: "stats", label: "Stats", to: "#stats" },
     { id: "contact", label: "Contact", to: "#contact" },
   ];
