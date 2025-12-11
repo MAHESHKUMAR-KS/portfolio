@@ -9,11 +9,11 @@ import Certifications from './assets/components/Certifications';
 import Achievements from './assets/components/Achievements';
 import Leadership from './assets/components/Leadership';
 import Stats from './assets/components/Stats';
+import Contact from './assets/components/Contact';
+import Footer from './assets/components/Footer';
 // import Hero from './sections/Hero/Hero';
 // import About from './sections/About/About';
 // import Projects from './sections/Projects/Projects';
-// import Contact from './sections/Contact/Contact';
-// import Footer from './components/Footer';
 
 function App() {
   // Smooth scroll to top on page load
@@ -41,17 +41,20 @@ function App() {
           particleColors={['#ffffff', '#ffffff', '#ffffff']}
         />
       </div>
-      <div className="relative z-10">
+      <div className="relative z-10 flex flex-col min-h-screen">
         <Navigation />
         {/* Render sections inline for single-page navigation */}
-        <Home />
-        <About />
-        <Projects />
-        <Certifications />
-        <Achievements />
-        <Leadership />
-        <Stats />
-        {/* Future sections: Contact */}
+        <main className="flex-grow">
+          <Home />
+          <About />
+          <Projects />
+          <Certifications />
+          <Achievements />
+          <Leadership />
+          <Stats />
+          <Contact />
+        </main>
+        <Footer />
       </div>
     </div>
   );
