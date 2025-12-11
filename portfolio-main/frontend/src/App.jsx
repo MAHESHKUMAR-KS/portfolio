@@ -5,6 +5,10 @@ import Home from './assets/components/Home';
 import About from './assets/components/About';
 import Particles from './assets/components/Particles';
 import Projects from './assets/components/Projects';
+import Certifications from './assets/components/Certifications';
+import Achievements from './assets/components/Achievements';
+import Leadership from './assets/components/Leadership';
+import Stats from './assets/components/Stats';
 // import Hero from './sections/Hero/Hero';
 // import About from './sections/About/About';
 // import Projects from './sections/Projects/Projects';
@@ -43,7 +47,11 @@ function App() {
         <Home />
         <About />
         <Projects />
-        {/* Future sections: Projects, Achievements, Certifications, Stats, Contact */}
+        <Certifications />
+        <Achievements />
+        <Leadership />
+        <Stats />
+        {/* Future sections: Contact */}
       </div>
     </div>
   );

@@ -22,6 +22,7 @@ const Navigation = () => {
       'about',
       'projects',
       'achievements',
+      'leadership',
       'certifications',
       'stats',
       'contact',
@@ -43,8 +44,8 @@ const Navigation = () => {
       },
       {
         root: null,
-        rootMargin: "-20% 0px -60% 0px",
-        threshold: [0.1, 0.25, 0.5, 0.75, 1],
+        rootMargin: "-30% 0px -70% 0px", // Adjusted margins for better detection
+        threshold: [0, 0.1, 0.25, 0.5, 0.75, 1], // Added 0 threshold for better detection
       }
     );
 
@@ -56,8 +57,9 @@ const Navigation = () => {
     { id: "home", label: "Home", to: "#home" },
     { id: "about", label: "About", to: "#about" },
     { id: "projects", label: "Projects", to: "#projects" },
-    { id: "certifications", label: "Certifications", to: "#certification" },
-    { id: "achivements", label: "Achivements", to: "#achivements" },
+    { id: "certifications", label: "Certifications", to: "#certifications" },
+    { id: "achievements", label: "Achievements", to: "#achievements" },
+    { id: "leadership", label: "Leadership", to: "#leadership" },
     { id: "stats", label: "Stats", to: "#stats" },
     { id: "contact", label: "Contact", to: "#contact" },
   ];

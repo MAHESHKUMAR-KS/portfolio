@@ -11,15 +11,15 @@ const projects = [
     github: "https://github.com/MAHESHKUMAR-KS/Carrier-guidence-app",
     technologies: ["React", "Vite", "Node.js", "Express", "MongoDB", "Google OAuth"],
     image: "/images/project1.jpg",
-    category: "Full Stack Application"
+    category: "Full Stack"
   },
   {
-    title: "Fest Assist (CEMS App)",
+    title: "Cems App",
     description: "Fest Assist (College Event Management System) is a modern full-stack application designed to streamline event organization and participation on campus. The frontend is a TypeScript React app scaffolded with Vite and styled using Tailwind CSS and shadcn-ui components; it uses a component-driven UI with Radix-based primitives, animations via Framer Motion, and interactive widgets (carousel, charts, OTP input). The backend is a REST API built with Express and Mongoose, secured with JWTs and password hashing (bcryptjs), and provides endpoints for authentication, event CRUD, registration/unregistration, and a local chatbot feature to query events and history. The project includes seeding scripts, environment-based configuration, and scripts for development and production builds. Typical flows include user signup/login, event creation by event-members, student registrations, admin moderation, and conversational FAQs via the chatbot.",
     github: "https://github.com/MAHESHKUMAR-KS/cems-app",
     technologies: ["React", "TypeScript", "Vite", "Tailwind CSS", "shadcn-ui", "Framer Motion", "Node.js", "Express.js", "MongoDB", "Mongoose", "JWT", "bcryptjs"],
     image: "/images/project2.jpg",
-    category: "Full Stack Application"
+    category: "Full Stack"
   },
   {
     title: "Pneumonia Detection",
@@ -27,7 +27,7 @@ const projects = [
     github: "https://github.com/MAHESHKUMAR-KS/pnemonia-detection",
     technologies: ["Python", "TensorFlow/Keras", "Streamlit", "Pillow", "NumPy", "Matplotlib"],
     image: "/images/project3.jpg",
-    category: "Artificial Intelligence and Machine Learning Project"
+    category: "AI&ML"
   },
   {
     title: "Fake News Detection",
@@ -35,7 +35,7 @@ const projects = [
     github: "https://github.com/MAHESHKUMAR-KS/fake-news-predection",
     technologies: ["Python", "pandas", "NumPy", "scikit-learn", "Streamlit", "joblib"],
     image: "/images/project4.jpg",
-    category: "Artificial Intelligence and Machine Learning Project"
+    category: "AI&ML"
   },
 ];
 
@@ -56,12 +56,12 @@ const Projects = () => {
     { 
       icon: <VscArchive size={18} />, 
       label: 'Full Stack', 
-      onClick: () => setFilter("Full Stack Application") 
+      onClick: () => setFilter("Full Stack") 
     },
     { 
       icon: <VscAccount size={18} />, 
       label: 'AI/ML', 
-      onClick: () => setFilter("Artificial Intelligence and Machine Learning Project") 
+      onClick: () => setFilter("AI&ML") 
     },
   ];
 
@@ -144,28 +144,28 @@ const Projects = () => {
                   
                   {/* Project Category Badge */}
                   <div className="mb-3">
-                    <span className={`inline-block px-4 py-2 text-sm font-sans font-bold rounded-full bg-transparent border ${
-                      project.category.includes("Artificial Intelligence") 
-                        ? "border-purple-500/50 text-purple-200" 
-                        : "border-blue-500/50 text-blue-200"
+                    <span className={`inline-block px-4 py-2 text-sm font-sans font-bold rounded-full bg-transparent border transition-all duration-300 ${
+                      project.category === "AI&ML" 
+                        ? "border-purple-500/50 text-purple-200 hover:border-purple-400 hover:text-purple-400 hover:drop-shadow-[0_0_8px_rgba(192,132,252,0.4)]" 
+                        : "border-blue-500/50 text-blue-200 hover:border-blue-400 hover:text-blue-400 hover:drop-shadow-[0_0_8px_rgba(96,165,250,0.4)]"
                     }`}>
                       {project.category}
                     </span>
                   </div>
                   
-                  <h3 className="text-2xl font-sans font-extrabold mb-3 text-white tracking-tight">{project.title}</h3>
+                  <h3 className="text-2xl font-sans font-extrabold mb-3 text-white tracking-tight transition-all duration-300 hover:text-green-400 hover:drop-shadow-[0_0_8px_rgba(74,222,128,0.4)]">{project.title}</h3>
                   
                   <div className="flex flex-wrap gap-2 mb-5">
                     {project.technologies.map((tech, techIndex) => (
                       <span 
                         key={techIndex} 
-                        className="px-3 py-1.5 bg-transparent rounded-lg text-xs font-sans font-semibold text-gray-200 border border-gray-500/50 hover:border-gray-400 transition-colors duration-200"
+                        className="px-3 py-1.5 bg-transparent rounded-lg text-xs font-sans font-bold text-gray-200 border border-gray-500/50 hover:border-green-400/70 transition-all duration-300 hover:text-green-400 hover:drop-shadow-[0_0_6px_rgba(74,222,128,0.3)]"
                       >
                         {tech}
                       </span>
                     ))}
                   </div>
-                  
+
                   <p className="mb-6 text-gray-300 leading-relaxed flex-grow font-sans font-medium text-base">
                     {project.description}
                   </p>
