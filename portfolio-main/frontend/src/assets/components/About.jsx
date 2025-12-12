@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import LogoLoop from './logoloop';
+import LogoLoop from './LogoLoop.jsx';
 
 const About = () => {
   const [selectedSkill, setSelectedSkill] = useState(null);
