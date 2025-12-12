@@ -7,39 +7,22 @@ const HeartLike = () => {
   const [showPopup, setShowPopup] = useState(false);
   const [popupMessage, setPopupMessage] = useState('');
 
-  // Load like count and liked status from localStorage on component mount
+  // Load like count from localStorage on component mount
   useEffect(() => {
     const storedLikeCount = localStorage.getItem('portfolioLikeCount');
-    const storedIsLiked = localStorage.getItem('portfolioIsLiked');
     
     if (storedLikeCount) {
       setLikeCount(parseInt(storedLikeCount, 10));
     }
-    
-    if (storedIsLiked === 'true') {
-      setIsLiked(true);
-    }
   }, []);
 
-  // Save like count and liked status to localStorage whenever they change
+  // Save like count to localStorage whenever it changes
   useEffect(() => {
     localStorage.setItem('portfolioLikeCount', likeCount.toString());
   }, [likeCount]);
 
-  useEffect(() => {
-    localStorage.setItem('portfolioIsLiked', isLiked.toString());
-  }, [isLiked]);
-
   const handleLike = () => {
-    if (isLiked) {
-      // User already liked
-      setPopupMessage('You already liked this!');
-      setShowPopup(true);
-      setTimeout(() => setShowPopup(false), 2000);
-      return;
-    }
-
-    // Increase like count
+    // Increase like count every time the button is clicked
     const newCount = likeCount + 1;
     setLikeCount(newCount);
     setIsLiked(true);
