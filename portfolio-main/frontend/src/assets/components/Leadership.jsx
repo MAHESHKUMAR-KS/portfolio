@@ -48,7 +48,7 @@ const Leadership = () => {
     }
   ];
 
-  // Function to generate a logo based on ID
+ 
   const generateLogo = (text, index, id) => {
     // For ID 1, use the specific image
     if (id === 1) {

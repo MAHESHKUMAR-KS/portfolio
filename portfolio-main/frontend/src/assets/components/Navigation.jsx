@@ -3,6 +3,7 @@ import { FiDownload } from "react-icons/fi";
 import { FiMenu, FiX } from "react-icons/fi"; // Added menu icons for mobile
 
 import GooeyNav from "./GooeyNav";
+import HeartLike from "./HeartLike";
 
 const Navigation = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -106,7 +107,7 @@ const Navigation = () => {
               {mobileMenuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
             </button>
 
-            {/* Right: Navigation Links - hidden on mobile, visible on medium screens and up */}
+            {/* Right: Navigation Links and Heart Like Component - hidden on mobile, visible on medium screens and up */}
             <div className="hidden md:flex items-center gap-8">
               <GooeyNav items={navLinks} initialActiveIndex={0} activeId={activeId} />
 
@@ -121,6 +122,9 @@ const Navigation = () => {
                 <FiDownload className="text-lg" />
                 <span>Resume</span>
               </a>
+              
+              {/* Heart Like Component */}
+              <HeartLike />
             </div>
 
             {/* Mobile menu - visible only when mobileMenuOpen is true */}
@@ -160,6 +164,11 @@ const Navigation = () => {
                     <FiDownload className="text-lg" />
                     <span>Resume</span>
                   </a>
+                  
+                  {/* Heart Like Component for mobile */}
+                  <div className="pt-4">
+                    <HeartLike />
+                  </div>
                 </div>
               </div>
             )}
