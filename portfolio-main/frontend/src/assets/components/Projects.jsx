@@ -91,7 +91,7 @@ const Projects = () => {
         </div>
         
         {/* Projects Grid */}
-        <div className="grid gap-7 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
+        <div className="grid gap-6 sm:gap-7 grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2">
           {filteredProjects.map((project, index) => (
             <motion.div
               key={`${filter}-${index}`}
@@ -128,9 +128,9 @@ const Projects = () => {
                   boxShadow: "0 0 25px rgba(74, 222, 128, 0.4)",
                 }}
               >
-                <div className="p-6 flex flex-col h-full">
+                <div className="p-5 md:p-6 flex flex-col h-full">
                   {/* Project Image */}
-                  <div className="mb-5 rounded-xl overflow-hidden h-48 flex-shrink-0 shadow-lg">
+                  <div className="mb-4 md:mb-5 rounded-xl overflow-hidden h-40 md:h-48 flex-shrink-0 shadow-lg">
                     <img 
                       src={project.image} 
                       alt={project.title}
@@ -143,8 +143,8 @@ const Projects = () => {
                   </div>
                   
                   {/* Project Category Badge */}
-                  <div className="mb-3">
-                    <span className={`inline-block px-4 py-2 text-sm font-sans font-bold rounded-full bg-transparent border transition-all duration-300 ${
+                  <div className="mb-2 md:mb-3">
+                    <span className={`inline-block px-3 py-1.5 md:px-4 md:py-2 text-xs md:text-sm font-sans font-bold rounded-full bg-transparent border transition-all duration-300 ${
                       project.category === "AI&ML" 
                         ? "border-purple-500/50 text-purple-200 hover:border-purple-400 hover:text-purple-400 hover:drop-shadow-[0_0_8px_rgba(192,132,252,0.4)]" 
                         : "border-blue-500/50 text-blue-200 hover:border-blue-400 hover:text-blue-400 hover:drop-shadow-[0_0_8px_rgba(96,165,250,0.4)]"
@@ -153,20 +153,20 @@ const Projects = () => {
                     </span>
                   </div>
                   
-                  <h3 className="text-2xl font-sans font-extrabold mb-3 text-white tracking-tight transition-all duration-300 hover:text-green-400 hover:drop-shadow-[0_0_8px_rgba(74,222,128,0.4)]">{project.title}</h3>
+                  <h3 className="text-xl md:text-2xl font-sans font-extrabold mb-2 md:mb-3 text-white tracking-tight transition-all duration-300 hover:text-green-400 hover:drop-shadow-[0_0_8px_rgba(74,222,128,0.4)]">{project.title}</h3>
                   
-                  <div className="flex flex-wrap gap-2 mb-5">
+                  <div className="flex flex-wrap gap-1.5 md:gap-2 mb-4 md:mb-5">
                     {project.technologies.map((tech, techIndex) => (
                       <span 
                         key={techIndex} 
-                        className="px-3 py-1.5 bg-transparent rounded-lg text-xs font-sans font-bold text-gray-200 border border-gray-500/50 hover:border-green-400/70 transition-all duration-300 hover:text-green-400 hover:drop-shadow-[0_0_6px_rgba(74,222,128,0.3)]"
+                        className="px-2 py-1 md:px-3 md:py-1.5 bg-transparent rounded-lg text-xs font-sans font-bold text-gray-200 border border-gray-500/50 hover:border-green-400/70 transition-all duration-300 hover:text-green-400 hover:drop-shadow-[0_0_6px_rgba(74,222,128,0.3)]"
                       >
                         {tech}
                       </span>
                     ))}
                   </div>
 
-                  <p className="mb-6 text-gray-300 leading-relaxed flex-grow font-sans font-medium text-base">
+                  <p className="mb-4 md:mb-6 text-gray-300 leading-relaxed flex-grow font-sans font-medium text-sm md:text-base">
                     {project.description}
                   </p>
                   
@@ -176,11 +176,11 @@ const Projects = () => {
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-3 bg-transparent border border-teal-500/50 text-white font-sans font-bold py-3 px-6 rounded-xl w-full justify-center transition-all duration-300 hover:bg-teal-500/10 hover:border-teal-400 hover:shadow-lg hover:shadow-teal-500/40 mt-auto"
+                    className="inline-flex items-center gap-2 md:gap-3 bg-transparent border border-teal-500/50 text-white font-sans font-bold py-2.5 md:py-3 px-4 md:px-6 rounded-xl w-full justify-center transition-all duration-300 hover:bg-teal-500/10 hover:border-teal-400 hover:shadow-lg hover:shadow-teal-500/40 mt-auto text-sm md:text-base"
                   >
                     <svg 
                       xmlns="http://www.w3.org/2000/svg" 
-                      className="h-5 w-5" 
+                      className="h-4 w-4 md:h-5 md:w-5" 
                       viewBox="0 0 20 20" 
                       fill="currentColor"
                     >

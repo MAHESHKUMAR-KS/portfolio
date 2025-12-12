@@ -1,12 +1,13 @@
 import React, { useState, useEffect, useRef } from "react";
 import { FiDownload } from "react-icons/fi";
+import { FiMenu, FiX } from "react-icons/fi"; // Added menu icons for mobile
 
 import GooeyNav from "./GooeyNav";
-
 
 const Navigation = () => {
   const [scrolled, setScrolled] = useState(false);
   const [activeId, setActiveId] = useState('home');
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false); // State for mobile menu
 
   const navRef = useRef(null);
 
@@ -64,6 +65,18 @@ const Navigation = () => {
     { id: "contact", label: "Contact", to: "#contact" },
   ];
 
+  // Function to close mobile menu when a link is clicked
+  const handleLinkClick = (to) => {
+    setMobileMenuOpen(false);
+    
+    // Scroll to the section
+    const id = (to || '').replace(/^#/, '');
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   return (
     <>
       <nav
@@ -77,20 +90,24 @@ const Navigation = () => {
               href="#home"
               onClick={(e) => {
                 e.preventDefault();
-                const el = document.getElementById('home');
-                if (el) {
-                  el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                } else {
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
-                }
+                handleLinkClick("#home"); // Close mobile menu and scroll to home
               }}
               className="text-white text-lg font-bold cursor-pointer"
             >
               MaheshKumar KS
             </a>
 
-            {/* Right: Navigation Links */}
-            <div className="flex items-center gap-8">
+            {/* Mobile menu button - visible only on small screens */}
+            <button
+              className="md:hidden text-white z-50"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label="Toggle navigation menu"
+            >
+              {mobileMenuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
+            </button>
+
+            {/* Right: Navigation Links - hidden on mobile, visible on medium screens and up */}
+            <div className="hidden md:flex items-center gap-8">
               <GooeyNav items={navLinks} initialActiveIndex={0} activeId={activeId} />
 
               {/* Resume Button */}
@@ -105,6 +122,47 @@ const Navigation = () => {
                 <span>Resume</span>
               </a>
             </div>
+
+            {/* Mobile menu - visible only when mobileMenuOpen is true */}
+            {mobileMenuOpen && (
+              <div className="md:hidden fixed inset-0 bg-black bg-opacity-95 z-40 flex flex-col items-center justify-center">
+                <div className="flex flex-col items-center space-y-8">
+                  {/* Simple vertical navigation for mobile */}
+                  <nav className="flex flex-col items-center space-y-6">
+                    {navLinks.map((link) => (
+                      <a
+                        key={link.id}
+                        href={link.to}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          handleLinkClick(link.to);
+                        }}
+                        className={`text-2xl font-medium transition-colors duration-300 ${
+                          activeId === link.id 
+                            ? "text-green-400" 
+                            : "text-white hover:text-green-400"
+                        }`}
+                      >
+                        {link.label}
+                      </a>
+                    ))}
+                  </nav>
+                  
+                  {/* Resume Button for mobile */}
+                  <a
+                    href="/resume.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-white hover:text-blue-400 transition-colors text-xl"
+                    download
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    <FiDownload className="text-lg" />
+                    <span>Resume</span>
+                  </a>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </nav>
