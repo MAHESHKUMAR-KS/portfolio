@@ -45,22 +45,22 @@ const Certifications = () => {
           My Certifications
         </motion.h2>
         
-        <div className="flex flex-col md:flex-row gap-8 justify-center items-stretch">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {certifications.map((cert, index) => (
             <motion.div
               key={cert.id}
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="flex-1 min-w-[400px] max-w-xl"
+              className="w-full"
             >
               <SpotlightCard className="h-full bg-transparent border border-green-500/60 rounded-2xl backdrop-blur-md shadow-lg hover:shadow-green-500/40 transition-all duration-300 flex flex-col">
-                <div className="p-6 flex flex-col h-full">
+                <div className="p-5 md:p-6 flex flex-col h-full">
                   {/* Top Section - Certification Info */}
-                  <div className="mb-6">
-                    <div className="flex justify-between items-start mb-4">
+                  <div className="mb-5 md:mb-6">
+                    <div className="flex justify-between items-start mb-3 md:mb-4">
                       <div>
-                        <h3 className="text-xl font-sans font-bold text-white mb-1">{cert.name}</h3>
+                        <h3 className="text-lg md:text-xl font-sans font-bold text-white mb-1">{cert.name}</h3>
                         <p className="text-gray-400 text-sm">{cert.issuer}</p>
                       </div>
                       <span className="text-xs text-gray-500 whitespace-nowrap">{cert.date}</span>
@@ -68,15 +68,15 @@ const Certifications = () => {
                   </div>
                   
                   {/* Middle Section - Certification Logo */}
-                  <div className="flex justify-center items-center mb-6 flex-grow">
+                  <div className="flex justify-center items-center mb-5 md:mb-6 flex-grow">
                     {cert.id === 1 || cert.id === 2 || cert.id === 3 ? (
                       <img 
                         src={cert.logo} 
                         alt={cert.name}
                         className={
-                          cert.id === 2 ? "w-48 h-48 object-contain" : 
-                          cert.id === 3 ? "w-44 h-44 object-contain" : 
-                          "w-36 h-36 object-contain"
+                          cert.id === 2 ? "w-36 h-36 md:w-48 md:h-48 object-contain" : 
+                          cert.id === 3 ? "w-32 h-32 md:w-44 md:h-44 object-contain" : 
+                          "w-28 h-28 md:w-36 md:h-36 object-contain"
                         }
                         onError={(e) => {
                           e.target.onerror = null;
@@ -90,7 +90,7 @@ const Certifications = () => {
                         }}
                       />
                     ) : (
-                      <div className="bg-gray-200 border-2 border-dashed rounded-xl w-36 h-36 flex items-center justify-center">
+                      <div className="bg-gray-200 border-2 border-dashed rounded-xl w-28 h-28 md:w-36 md:h-36 flex items-center justify-center">
                         <span className="text-gray-500 text-sm text-center">Certification Logo</span>
                       </div>
                     )}
@@ -101,13 +101,13 @@ const Certifications = () => {
                     <h4 className="text-base font-sans font-semibold text-gray-300 mb-2">
                       <span className="font-bold">Skills</span>
                     </h4>
-                    <div className="flex flex-wrap">
+                    <div className="flex flex-wrap gap-1">
                       {cert.skills.map((skill, skillIndex) => (
                         <React.Fragment key={skillIndex}>
-                          <span className="px-2 py-1 bg-transparent rounded-md text-sm font-sans font-medium text-gray-200">
+                          <span className="px-2 py-1 bg-transparent rounded-md text-xs md:text-sm font-sans font-medium text-gray-200">
                             {skill}
                           </span>
-                          {skillIndex < cert.skills.length - 1 && <span className="text-gray-200">, </span>}
+                          {skillIndex < cert.skills.length - 1 && <span className="text-gray-200">,</span>}
                         </React.Fragment>
                       ))}
                     </div>
@@ -120,7 +120,7 @@ const Certifications = () => {
                     href={cert.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 bg-transparent border border-teal-500/50 text-white font-sans font-medium py-2 px-4 rounded-lg w-full mt-6 transition-all duration-300 hover:bg-teal-500/10 hover:border-teal-400 hover:shadow-lg hover:shadow-teal-500/40"
+                    className="inline-flex items-center justify-center gap-2 bg-transparent border border-teal-500/50 text-white font-sans font-medium py-2 px-4 rounded-lg w-full mt-5 md:mt-6 transition-all duration-300 hover:bg-teal-500/10 hover:border-teal-400 hover:shadow-lg hover:shadow-teal-500/40 text-sm md:text-base"
                   >
                     <span>View Certificate</span>
                   </motion.a>
