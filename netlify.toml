@@ -1,4 +1,7 @@
 [build]
-  base = "frontend"
-  command = "npm run build"
+  base = ""
+  command = "npm run build --prefix frontend"
   publish = "frontend/dist"
+
+[build.environment]
+  NPM_FLAGS = "--prefix frontend"
