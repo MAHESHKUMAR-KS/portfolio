@@ -15,7 +15,7 @@ const Achievements = () => {
     },
     {
       id: 2,
-      title: "Top 25 Placement at Ruby Year Technofest",
+      title: "Secured  Top 25 in at Ruby Year Technofest",
       issuer: "Kongu Engineering College",
       date: "Issued: 2024",
       description: "I placed in the Top 25 at the Ruby Year Technofest for my project Smart Wealth Investment.\n\nThe project focused on helping users make better financial decisions through simple analytics, clear visual insights and a smooth decision flow.\n\nThis event gave me a chance to present my work, get feedback from faculty and industry reviewers and improve the overall design. It pushed me to think more clearly about user needs, data accuracy and real world usability.",
