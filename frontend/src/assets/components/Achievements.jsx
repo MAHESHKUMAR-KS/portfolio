@@ -32,6 +32,9 @@ const Achievements = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           className="font-sans font-extrabold text-4xl md:text-5xl lg:text-6xl mb-14 text-transparent bg-clip-text bg-gradient-to-r from-[#4ade80] via-[#22d3ee] to-[#4ade80] leading-tight tracking-tight drop-shadow-lg text-center"
+          style={{
+            textShadow: "0 0 15px rgba(74, 222, 128, 0.3)"
+          }}
         >
           My Achievements
         </motion.h2>
@@ -43,9 +46,9 @@ const Achievements = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="w-full max-w-4xl"
+              className="w-full max-w-4xl group"
             >
-              <SpotlightCard className="bg-transparent border border-green-500/60 rounded-2xl backdrop-blur-md shadow-lg hover:shadow-green-500/40 transition-all duration-300">
+              <SpotlightCard className="bg-transparent border border-green-500/60 rounded-2xl backdrop-blur-md shadow-lg hover:shadow-green-500/40 transition-all duration-300 group-hover:shadow-xl group-hover:shadow-green-500/30">
                 <div className="p-6 md:p-8 flex flex-col h-full">
                   {/* Achievement Image */}
                   <div className="mb-6 rounded-xl overflow-hidden h-80 flex-shrink-0 shadow-lg">
@@ -84,7 +87,7 @@ const Achievements = () => {
                           href={achievement.certificateUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 bg-transparent border border-purple-500/50 text-white font-sans font-medium py-2 px-4 rounded-lg transition-all duration-300 hover:bg-purple-500/10 hover:border-purple-400 hover:shadow-lg hover:shadow-purple-500/40"
+                          className="inline-flex items-center gap-2 bg-transparent border border-purple-500/50 text-white font-sans font-medium py-2 px-4 rounded-lg transition-all duration-300 hover:bg-purple-500/10 hover:border-purple-400 hover:shadow-lg hover:shadow-purple-500/40 group-hover:shadow-lg group-hover:shadow-purple-500/30"
                         >
                           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                             <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
@@ -103,7 +106,7 @@ const Achievements = () => {
                           href={achievement.linkedinUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 bg-transparent border border-blue-500/50 text-white font-sans font-medium py-2 px-4 rounded-lg transition-all duration-300 hover:bg-blue-500/10 hover:border-blue-400 hover:shadow-lg hover:shadow-blue-500/40"
+                          className="inline-flex items-center gap-2 bg-transparent border border-blue-500/50 text-white font-sans font-medium py-2 px-4 rounded-lg transition-all duration-300 hover:bg-blue-500/10 hover:border-blue-400 hover:shadow-lg hover:shadow-blue-500/40 group-hover:shadow-lg group-hover:shadow-blue-500/30"
                         >
                           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>

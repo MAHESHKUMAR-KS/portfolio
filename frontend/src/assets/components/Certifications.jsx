@@ -41,6 +41,9 @@ const Certifications = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           className="font-sans font-extrabold text-4xl md:text-5xl lg:text-6xl mb-14 text-transparent bg-clip-text bg-gradient-to-r from-[#4ade80] via-[#22d3ee] to-[#4ade80] leading-tight tracking-tight drop-shadow-lg text-center"
+          style={{
+            textShadow: "0 0 15px rgba(74, 222, 128, 0.3)"
+          }}
         >
           My Certifications
         </motion.h2>
@@ -52,9 +55,9 @@ const Certifications = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="w-full"
+              className="w-full group"
             >
-              <SpotlightCard className="h-full bg-transparent border border-green-500/60 rounded-2xl backdrop-blur-md shadow-lg hover:shadow-green-500/40 transition-all duration-300 flex flex-col">
+              <SpotlightCard className="h-full bg-transparent border border-green-500/60 rounded-2xl backdrop-blur-md shadow-lg hover:shadow-green-500/40 transition-all duration-300 flex flex-col group-hover:shadow-xl group-hover:shadow-green-500/30">
                 <div className="p-5 md:p-6 flex flex-col h-full">
                   {/* Top Section - Certification Info */}
                   <div className="mb-5 md:mb-6">
@@ -120,7 +123,7 @@ const Certifications = () => {
                     href={cert.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 bg-transparent border border-teal-500/50 text-white font-sans font-medium py-2 px-4 rounded-lg w-full mt-5 md:mt-6 transition-all duration-300 hover:bg-teal-500/10 hover:border-teal-400 hover:shadow-lg hover:shadow-teal-500/40 text-sm md:text-base"
+                    className="inline-flex items-center justify-center gap-2 bg-transparent border border-teal-500/50 text-white font-sans font-medium py-2 px-4 rounded-lg w-full mt-5 md:mt-6 transition-all duration-300 hover:bg-teal-500/10 hover:border-teal-400 hover:shadow-lg hover:shadow-teal-500/40 text-sm md:text-base group-hover:shadow-lg group-hover:shadow-teal-500/30"
                   >
                     <span>View Certificate</span>
                   </motion.a>

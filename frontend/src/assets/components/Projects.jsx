@@ -73,6 +73,9 @@ const Projects = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           className="font-sans font-extrabold text-4xl md:text-5xl lg:text-6xl mb-14 text-transparent bg-clip-text bg-gradient-to-r from-[#4ade80] via-[#22d3ee] to-[#4ade80] leading-tight tracking-tight drop-shadow-lg text-center"
+          style={{
+            textShadow: "0 0 15px rgba(74, 222, 128, 0.3)"
+          }}
         >
           My Projects
         </motion.h2>
@@ -123,7 +126,7 @@ const Projects = () => {
                 glareOpacity={0.5}
                 glareSize={200}
                 transitionDuration={400}
-                className="border border-green-500/60 rounded-2xl backdrop-blur-md shadow-lg hover:shadow-green-500/40 transition-all duration-300 flex-grow flex flex-col"
+                className="border border-green-500/60 rounded-2xl backdrop-blur-md shadow-lg hover:shadow-green-500/40 transition-all duration-300 flex-grow flex flex-col group"
                 style={{
                   boxShadow: "0 0 25px rgba(74, 222, 128, 0.4)",
                 }}
@@ -165,7 +168,7 @@ const Projects = () => {
                       </span>
                     ))}
                   </div>
-
+                  
                   <p className="mb-4 md:mb-6 text-gray-300 leading-relaxed flex-grow font-sans font-medium text-sm md:text-base">
                     {project.description}
                   </p>
@@ -176,7 +179,7 @@ const Projects = () => {
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 md:gap-3 bg-transparent border border-teal-500/50 text-white font-sans font-bold py-2.5 md:py-3 px-4 md:px-6 rounded-xl w-full justify-center transition-all duration-300 hover:bg-teal-500/10 hover:border-teal-400 hover:shadow-lg hover:shadow-teal-500/40 mt-auto text-sm md:text-base"
+                    className="inline-flex items-center gap-2 md:gap-3 bg-transparent border border-teal-500/50 text-white font-sans font-bold py-2.5 md:py-3 px-4 md:px-6 rounded-xl w-full justify-center transition-all duration-300 hover:bg-teal-500/10 hover:border-teal-400 hover:shadow-lg hover:shadow-teal-500/40 mt-auto text-sm md:text-base group-hover:shadow-lg group-hover:shadow-green-500/30"
                   >
                     <svg 
                       xmlns="http://www.w3.org/2000/svg" 

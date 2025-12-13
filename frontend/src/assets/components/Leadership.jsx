@@ -112,6 +112,9 @@ const Leadership = () => {
           viewport={{ once: false, amount: 0.2 }}
           transition={{ duration: 0.6 }}
           className="font-sans font-extrabold text-3xl md:text-4xl lg:text-5xl mb-14 text-transparent bg-clip-text bg-gradient-to-r from-[#4ade80] via-[#22d3ee] to-[#4ade80] leading-tight tracking-tight drop-shadow-lg text-center"
+          style={{
+            textShadow: "0 0 15px rgba(74, 222, 128, 0.3)"
+          }}
         >
           Leadership Experience
         </motion.h2>
@@ -124,9 +127,9 @@ const Leadership = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false, amount: 0.2 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="w-full lg:w-4/12"
+              className="w-full lg:w-4/12 group"
             >
-              <PixelCard variant="blue" className="border border-green-500/60 rounded-2xl backdrop-blur-md shadow-lg hover:shadow-green-500/40 transition-all duration-300 h-full">
+              <PixelCard variant="blue" className="border border-green-500/60 rounded-2xl backdrop-blur-md shadow-lg hover:shadow-green-500/40 transition-all duration-300 h-full group-hover:shadow-xl group-hover:shadow-green-500/30">
                 <div className="p-5 md:p-6 flex flex-col h-full relative z-10">
                   <div className="flex items-start mb-3">
                     {generateLogo(role.logo, index, role.id)}
@@ -136,7 +139,7 @@ const Leadership = () => {
                           <h3 className="text-xl md:text-2xl font-sans font-extrabold mb-1 text-white tracking-tight transition-all duration-300 hover:text-green-400 hover:drop-shadow-[0_0_8px_rgba(74,222,128,0.4)]">
                             {role.title}
                           </h3>
-                          <p className="text-base md:text-lg font-semibold text-cyan-400">{role.position}</p>
+                          
                           <p className="text-sm text-gray-400">{role.organization}</p>
                         </div>
                         <span className="mt-2 md:mt-0 text-gray-400 bg-gray-800/50 px-2 py-1 rounded-full text-xs md:text-sm font-medium whitespace-nowrap">
