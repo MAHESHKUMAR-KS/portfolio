@@ -65,7 +65,7 @@ const Achievements = () => {
                   
                   {/* Achievement Content */}
                   <div className="flex-grow">
-                    <h3 className="text-2xl font-sans font-extrabold mb-3 text-white tracking-tight transition-all duration-300 hover:text-green-400 hover:drop-shadow-[0_0_8px_rgba(74,222,128,0.4)]">
+                    <h3 className="text-2xl font-sans font-extrabold mb-3 text-white tracking-tight transition-all duration-300 hover:text-green-400 hover:drop-shadow-[0_0_8px_rgba(74,222,128,0.4)] md:hover:text-green-400 md:hover:drop-shadow-[0_0_8px_rgba(74,222,128,0.4)]">
                       {achievement.title}
                     </h3>
                     

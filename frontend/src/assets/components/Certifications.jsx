@@ -57,7 +57,7 @@ const Certifications = () => {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="w-full group"
             >
-              <SpotlightCard className="h-full bg-transparent border border-green-500/60 rounded-2xl backdrop-blur-md shadow-lg hover:shadow-green-500/40 transition-all duration-300 flex flex-col group-hover:shadow-xl group-hover:shadow-green-500/30">
+              <SpotlightCard className="h-full bg-transparent border border-green-500/60 rounded-2xl backdrop-blur-md shadow-lg hover:shadow-green-500/40 transition-all duration-300 flex flex-col group-hover:shadow-xl group-hover:shadow-green-500/30 md:hover:shadow-green-500/40 md:group-hover:shadow-xl md:group-hover:shadow-green-500/30">
                 <div className="p-5 md:p-6 flex flex-col h-full">
                   {/* Top Section - Certification Info */}
                   <div className="mb-5 md:mb-6">
@@ -123,7 +123,7 @@ const Certifications = () => {
                     href={cert.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 bg-transparent border border-teal-500/50 text-white font-sans font-medium py-2 px-4 rounded-lg w-full mt-5 md:mt-6 transition-all duration-300 hover:bg-teal-500/10 hover:border-teal-400 hover:shadow-lg hover:shadow-teal-500/40 text-sm md:text-base group-hover:shadow-lg group-hover:shadow-teal-500/30"
+                    className="inline-flex items-center justify-center gap-2 bg-transparent border border-teal-500/50 text-white font-sans font-medium py-2 px-4 rounded-lg w-full mt-5 md:mt-6 transition-all duration-300 hover:bg-teal-500/10 hover:border-teal-400 hover:shadow-lg hover:shadow-teal-500/40 text-sm md:text-base group-hover:shadow-lg group-hover:shadow-teal-500/30 md:hover:bg-teal-500/10 md:hover:border-teal-400 md:hover:shadow-lg md:hover:shadow-teal-500/40 md:group-hover:shadow-lg md:group-hover:shadow-teal-500/30"
                   >
                     <span>View Certificate</span>
                   </motion.a>

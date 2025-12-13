@@ -1,12 +1,44 @@
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 
 const SpotlightCard = ({ children, className = '', spotlightColor = 'rgba(255, 255, 255, 0.25)' }) => {
   const divRef = useRef(null);
   const [isFocused, setIsFocused] = useState(false);
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [opacity, setOpacity] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Check if device is mobile/tablet
+  useEffect(() => {
+    const checkIsMobile = () => {
+      const mobileCheck = window.innerWidth <= 768 || 
+        ('ontouchstart' in window) || 
+        (navigator.maxTouchPoints > 0) || 
+        (navigator.msMaxTouchPoints > 0);
+      setIsMobile(mobileCheck);
+      
+      // On mobile, show glow effect by default when component mounts
+      if (mobileCheck) {
+        setOpacity(0.6);
+        // Set position to center of card
+        if (divRef.current) {
+          const rect = divRef.current.getBoundingClientRect();
+          setPosition({ x: rect.width / 2, y: rect.height / 2 });
+        }
+      }
+    };
+    
+    checkIsMobile();
+    window.addEventListener('resize', checkIsMobile);
+    
+    return () => {
+      window.removeEventListener('resize', checkIsMobile);
+    };
+  }, []);
 
   const handleMouseMove = e => {
+    // Don't handle mouse move on mobile devices
+    if (isMobile) return;
+    
     if (!divRef.current || isFocused) return;
 
     const rect = divRef.current.getBoundingClientRect();
@@ -20,15 +52,30 @@ const SpotlightCard = ({ children, className = '', spotlightColor = 'rgba(255, 2
 
   const handleBlur = () => {
     setIsFocused(false);
-    setOpacity(0);
+    // On mobile, keep glow effect; on desktop, remove it
+    setOpacity(isMobile ? 0.6 : 0);
   };
 
   const handleMouseEnter = () => {
+    // Don't change opacity on mobile devices
+    if (isMobile) return;
     setOpacity(0.6);
   };
 
   const handleMouseLeave = () => {
+    // Don't change opacity on mobile devices
+    if (isMobile) return;
     setOpacity(0);
+  };
+
+  const handleTouchStart = () => {
+    // Ensure glow is visible on touch
+    setOpacity(0.6);
+    // Set position to touch point if we can get it
+    if (divRef.current) {
+      const rect = divRef.current.getBoundingClientRect();
+      setPosition({ x: rect.width / 2, y: rect.height / 2 });
+    }
   };
 
   return (
@@ -39,6 +86,7 @@ const SpotlightCard = ({ children, className = '', spotlightColor = 'rgba(255, 2
       onBlur={handleBlur}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
+      onTouchStart={handleTouchStart}
       className={`relative rounded-3xl border border-neutral-800 bg-neutral-900 overflow-hidden p-8 ${className}`}
     >
       <div
