@@ -97,14 +97,34 @@ const Contact = () => {
 
                 /* FIXED FORM */
                 <form
-                  action="https://formsubmit.co/maheshsenthil626@gmail.com"
+                  name="contact"
                   method="POST"
-                  onSubmit={() => setIsSubmitted(true)}
+                  data-netlify="true"
+                  data-netlify-honeypot="bot-field"
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    const formData = new FormData(e.target);
+                    fetch("/", {
+                      method: "POST",
+                      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                      body: new URLSearchParams(formData).toString()
+                    })
+                    .then(() => setIsSubmitted(true))
+                    .catch((error) => {
+                      console.error("Form submission error:", error);
+                      alert("Error submitting form. Please try again.");
+                    });
+                  }}
                   className="space-y-6"
                 >
-                  {/* Required FormSubmit hidden inputs */}
-                  <input type="hidden" name="_captcha" value="false" />
-                  <input type="hidden" name="_template" value="table" />
+                  {/* Netlify Forms hidden inputs */}
+                  <input type="hidden" name="form-name" value="contact" />
+                  <input type="hidden" name="bot-field" />
+                  
+                  {/* Honeypot field (hidden) */}
+                  <p className="hidden">
+                    <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+                  </p>
 
                   <div>
                     <label className="block text-sm font-medium text-gray-300 mb-2">Name</label>
