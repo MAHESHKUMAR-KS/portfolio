@@ -129,141 +129,86 @@ const Contact = () => {
 
 
             {isSubmitted ? (
-
               <div className="bg-green-900/50 border border-green-500 p-6 text-center rounded-lg">
-
                 <h4 className="text-xl font-semibold">
-
                   Message Sent Successfully!
-
                 </h4>
-
                 <p className="text-gray-300 mt-2">
-
-                  Thank you for reaching out. I’ll get back to you soon.
-
+                  Thank you for reaching out. I'll get back to you soon.
                 </p>
-
               </div>
-
             ) : (
-
               <form
-
                 name="contact"
-
                 method="POST"
-
-                action="/?success=true"
-
                 data-netlify="true"
-
                 data-netlify-honeypot="bot-field"
-
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  const formData = new FormData(e.target);
+                  fetch("/", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                    body: new URLSearchParams(formData).toString()
+                  })
+                  .then(() => setIsSubmitted(true))
+                  .catch((error) => {
+                    console.error("Form submission error:", error);
+                    alert("Error submitting form. Please try again.");
+                  });
+                }}
                 className="space-y-6"
-
               >
-
                 {/* Netlify required hidden inputs */}
-
                 <input type="hidden" name="form-name" value="contact" />
-
                 <input type="hidden" name="bot-field" />
 
-
-
                 <p className="hidden">
-
                   <label>
-
-                    Don’t fill this out if you're human:
-
+                    Don't fill this out if you're human:
                     <input name="bot-field" />
-
                   </label>
-
                 </p>
 
-
-
                 <div>
-
                   <label className="block mb-2">Name</label>
-
                   <input
-
                     type="text"
-
                     name="name"
-
                     required
-
                     className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg"
-
                   />
-
                 </div>
 
-
-
                 <div>
-
                   <label className="block mb-2">Email</label>
-
                   <input
-
                     type="email"
-
                     name="email"
-
                     required
-
                     className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg"
-
                   />
-
                 </div>
-
-
 
                 <div>
-
                   <label className="block mb-2">Message</label>
-
                   <textarea
-
                     name="message"
-
                     rows="4"
-
                     required
-
                     className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg resize-none"
-
                   ></textarea>
-
                 </div>
-
-
 
                 <motion.button
-
                   whileHover={{ y: -2 }}
-
                   whileTap={{ scale: 0.98 }}
-
                   type="submit"
-
                   className="w-full bg-gradient-to-r from-green-500 to-emerald-500 py-3 rounded-lg font-medium"
-
                 >
-
                   Send Message
-
                 </motion.button>
-
               </form>
-
             )}
 
           </div>
