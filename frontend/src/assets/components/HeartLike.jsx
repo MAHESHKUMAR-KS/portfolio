@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { doc, onSnapshot, setDoc, updateDoc, increment } from "firebase/firestore";
+import { doc, onSnapshot, updateDoc, increment } from "firebase/firestore";
 import { db } from "../../firebase";
 
 const HeartLike = () => {
@@ -12,20 +12,15 @@ const HeartLike = () => {
   const likeRef = doc(db, "likes", "global");
 
   useEffect(() => {
-    // prevent multiple likes from same browser
     if (localStorage.getItem("hasLikedPortfolio")) {
       setIsLiked(true);
     }
 
-    // realtime listener
     const unsubscribe = onSnapshot(
       likeRef,
       (docSnap) => {
         if (docSnap.exists()) {
           setLikeCount(docSnap.data().count ?? 0);
-        } else {
-          // safety: create doc if missing
-          setDoc(likeRef, { count: 0 });
         }
         setLoading(false);
       },
@@ -56,9 +51,7 @@ const HeartLike = () => {
     }
   };
 
-  if (loading) {
-    return <span className="text-white">...</span>;
-  }
+  if (loading) return <span className="text-white">...</span>;
 
   return (
     <>
