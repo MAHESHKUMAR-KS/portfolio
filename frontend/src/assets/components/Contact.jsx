@@ -1,25 +1,66 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect } from "react";
+
+import { motion } from "framer-motion";
+
+
 
 const Contact = () => {
+
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  return (
-    <section id="contact" className="min-h-screen bg-transparent text-white py-20 md:py-28 relative">
-      <div className="container mx-auto px-4 max-w-6xl relative z-10">
-        
-        {/* Heading */}
-        <motion.h2 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="font-sans font-extrabold text-4xl md:text-5xl lg:text-6xl mb-14 text-transparent bg-clip-text bg-gradient-to-r from-[#4ade80] via-[#22d3ee] to-[#4ade80] leading-tight tracking-tight drop-shadow-lg text-center"
-        >
-          Contact Me
-        </motion.h2>
-        
-        <div className="flex flex-col lg:flex-row gap-6 md:gap-8 justify-center items-stretch">
 
+
+  // Show success message after Netlify redirect
+
+  useEffect(() => {
+
+    const params = new URLSearchParams(window.location.search);
+
+    if (params.get("success") === "true") {
+
+      setIsSubmitted(true);
+
+    }
+
+  }, []);
+
+
+
+  return (
+
+    <section
+
+      id="contact"
+
+      className="min-h-screen bg-transparent text-white py-20 md:py-28"
+
+    >
+
+      <div className="container mx-auto px-4 max-w-6xl">
+
+
+
+        {/* Heading */}
+
+        <motion.h2
+
+          initial={{ opacity: 0, y: 20 }}
+
+          animate={{ opacity: 1, y: 0 }}
+
+          transition={{ duration: 0.6 }}
+
+          className="font-extrabold text-4xl md:text-5xl lg:text-6xl mb-14 text-transparent bg-clip-text bg-gradient-to-r from-[#4ade80] via-[#22d3ee] to-[#4ade80] text-center"
+
+        >
+
+          Contact Me
+
+        </motion.h2>
+
+
+
+        <div className="flex flex-col lg:flex-row gap-8">
           {/* LEFT — Contact Info */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -74,109 +115,169 @@ const Contact = () => {
             </div>
           </motion.div>
 
-          {/* RIGHT — Contact Form */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="flex-1 lg:w-1/2"
-          >
-            <div className="bg-transparent border border-green-500/60 rounded-2xl backdrop-blur-md shadow-lg h-full p-6 md:p-8">
-              <h3 className="text-2xl md:text-3xl font-bold mb-6 text-white text-center">Send a Message</h3>
+          {/* RIGHT */}
+          <div className="flex-1 border border-green-500/60 rounded-2xl p-8">
 
-              {/* SUCCESS MESSAGE */}
-              {isSubmitted ? (
-                <div className="bg-green-900/50 border border-green-500 rounded-lg p-6 text-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 text-green-400 mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                  <h4 className="text-xl font-semibold mb-2">Message Sent Successfully!</h4>
-                  <p className="text-gray-300">Thank you for reaching out. I'll get back to you soon.</p>
+
+
+            <h3 className="text-2xl font-bold mb-6 text-center">
+
+              Send a Message
+
+            </h3>
+
+
+
+            {isSubmitted ? (
+
+              <div className="bg-green-900/50 border border-green-500 p-6 text-center rounded-lg">
+
+                <h4 className="text-xl font-semibold">
+
+                  Message Sent Successfully!
+
+                </h4>
+
+                <p className="text-gray-300 mt-2">
+
+                  Thank you for reaching out. I’ll get back to you soon.
+
+                </p>
+
+              </div>
+
+            ) : (
+
+              <form
+
+                name="contact"
+
+                method="POST"
+
+                action="/?success=true"
+
+                data-netlify="true"
+
+                data-netlify-honeypot="bot-field"
+
+                className="space-y-6"
+
+              >
+
+                {/* Netlify required hidden inputs */}
+
+                <input type="hidden" name="form-name" value="contact" />
+
+                <input type="hidden" name="bot-field" />
+
+
+
+                <p className="hidden">
+
+                  <label>
+
+                    Don’t fill this out if you're human:
+
+                    <input name="bot-field" />
+
+                  </label>
+
+                </p>
+
+
+
+                <div>
+
+                  <label className="block mb-2">Name</label>
+
+                  <input
+
+                    type="text"
+
+                    name="name"
+
+                    required
+
+                    className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg"
+
+                  />
+
                 </div>
-              ) : (
 
-                /* FIXED FORM */
-                <form
-                  name="contact"
-                  method="POST"
-                  data-netlify="true"
-                  data-netlify-honeypot="bot-field"
-                  onSubmit={(e) => {
-                    e.preventDefault();
-                    const formData = new FormData(e.target);
-                    fetch("/", {
-                      method: "POST",
-                      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                      body: new URLSearchParams(formData).toString()
-                    })
-                    .then(() => setIsSubmitted(true))
-                    .catch((error) => {
-                      console.error("Form submission error:", error);
-                      alert("Error submitting form. Please try again.");
-                    });
-                  }}
-                  className="space-y-6"
+
+
+                <div>
+
+                  <label className="block mb-2">Email</label>
+
+                  <input
+
+                    type="email"
+
+                    name="email"
+
+                    required
+
+                    className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg"
+
+                  />
+
+                </div>
+
+
+
+                <div>
+
+                  <label className="block mb-2">Message</label>
+
+                  <textarea
+
+                    name="message"
+
+                    rows="4"
+
+                    required
+
+                    className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg resize-none"
+
+                  ></textarea>
+
+                </div>
+
+
+
+                <motion.button
+
+                  whileHover={{ y: -2 }}
+
+                  whileTap={{ scale: 0.98 }}
+
+                  type="submit"
+
+                  className="w-full bg-gradient-to-r from-green-500 to-emerald-500 py-3 rounded-lg font-medium"
+
                 >
-                  {/* Netlify Forms hidden inputs */}
-                  <input type="hidden" name="form-name" value="contact" />
-                  <input type="hidden" name="bot-field" />
-                  
-                  {/* Honeypot field (hidden) */}
-                  <p className="hidden">
-                    <label>Don't fill this out if you're human: <input name="bot-field" /></label>
-                  </p>
 
-                  <div>
-                    <label className="block text-sm font-medium text-gray-300 mb-2">Name</label>
-                    <input
-                      type="text"
-                      name="name"
-                      required
-                      placeholder="Your name"
-                      className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg text-white focus:ring-2 focus:ring-green-500"
-                    />
-                  </div>
+                  Send Message
 
-                  <div>
-                    <label className="block text-sm font-medium text-gray-300 mb-2">Email</label>
-                    <input
-                      type="email"
-                      name="email"
-                      required
-                      placeholder="Your email"
-                      className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg text-white focus:ring-2 focus:ring-green-500"
-                    />
-                  </div>
+                </motion.button>
 
-                  <div>
-                    <label className="block text-sm font-medium text-gray-300 mb-2">Message</label>
-                    <textarea
-                      name="message"
-                      rows="4"
-                      required
-                      placeholder="Your message here..."
-                      className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg text-white focus:ring-2 focus:ring-green-500 resize-none"
-                    ></textarea>
-                  </div>
+              </form>
 
-                  <motion.button
-                    whileHover={{ y: -2 }}
-                    whileTap={{ scale: 0.98 }}
-                    type="submit"
-                    className="w-full bg-gradient-to-r from-green-500 to-emerald-500 text-white py-3 rounded-lg font-medium text-base"
-                  >
-                    Send Message
-                  </motion.button>
+            )}
 
-                </form>
-              )}
-            </div>
-          </motion.div>
+          </div>
 
         </div>
+
       </div>
+
     </section>
+
   );
+
 };
+
+
 
 export default Contact;
