@@ -9,7 +9,7 @@ const Achievements = () => {
       title: "2nd Prize in Aventrix Web Development Event",
       issuer: "Computer Society of India (CSI)",
       date: "Issued: 2024",
-      description: "Thrilled to announce that I secured 2nd Prize in the Aventrix Web Development Event organized by the Computer Society of India (CSI)! 🏆✨\n\nParticipating in this competition was an incredible learning experience, pushing me to think creatively, solve problems efficiently, and apply my web development skills in innovative ways.\n\nA big thank you to the organizers and judges for hosting such an inspiring event and recognizing my efforts. 🙏\n\nThis achievement motivates me to keep growing, learning, and building impactful web solutions. 🚀",
+      description: "I secured 2nd Prize in the Aventrix Web Development Event organized by the Computer Society of India (CSI).\n\nThis competition was a valuable learning experience that challenged me to think creatively, solve problems efficiently, and apply my web development skills to build innovative solutions under competitive conditions.\n\nI am grateful to the organizers and judges for conducting such an inspiring event and for recognizing my efforts. This achievement has further motivated me to continuously improve my skills and build impactful, user-focused web applications.",
       image: "/achievements/achivements1.jpg",
       linkedinUrl: "https://www.linkedin.com/posts/maheshkumar-ks_webdevelopment-achievement-csi-activity-7270691093074046976-wFNR?utm_source=share&utm_medium=member_android&rcm=ACoAAFEkopgBnmfNKuWug-dRRcWFqbwlZZERv2o"
     },
