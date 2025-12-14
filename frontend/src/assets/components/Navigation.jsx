@@ -86,17 +86,23 @@ const Navigation = () => {
       >
         <div className="container mx-auto px-6">
           <div className="flex items-center justify-between">
-            {/* Left: Name */}
-            <a
-              href="#home"
-              onClick={(e) => {
-                e.preventDefault();
-                handleLinkClick("#home"); // Close mobile menu and scroll to home
-              }}
-              className="text-white text-lg font-bold cursor-pointer"
-            >
-              MaheshKumar KS
-            </a>
+            {/* Left: Name and Heart Like for mobile */}
+            <div className="flex items-center gap-4">
+              <a
+                href="#home"
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleLinkClick("#home"); // Close mobile menu and scroll to home
+                }}
+                className="text-white text-lg font-bold cursor-pointer"
+              >
+                MaheshKumar KS
+              </a>
+              {/* Heart Like Component for mobile - shown next to name */}
+              <div className="md:hidden">
+                <HeartLike />
+              </div>
+            </div>
 
             {/* Mobile menu button - visible only on small screens */}
             <button
@@ -165,10 +171,7 @@ const Navigation = () => {
                     <span>Resume</span>
                   </a>
                   
-                  {/* Heart Like Component for mobile */}
-                  <div className="pt-4">
-                    <HeartLike />
-                  </div>
+                  {/* Heart Like Component moved to be near the name */}
                 </div>
               </div>
             )}
