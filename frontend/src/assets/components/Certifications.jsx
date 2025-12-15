@@ -8,7 +8,7 @@ const certifications = [
     name: "Microsoft Certified: Power BI Data Analyst Associate",
     issuer: "Microsoft",
     date: "Issued: 2025",
-    skills: ["Data Modeling", "DAX Calculations", "Power Query for Data Cleaning", "Data Visualization in Power BI", "Business Intelligence Reporting"],
+    skills: ["Data Modeling", "DAX Calculations", "Data Visualization"],
     logo: "/images/power1.png",
     url: "https://learn.microsoft.com/en-us/users/maheshkumarks-1849/credentials/820876eb5048bfb5"
   },
@@ -17,7 +17,7 @@ const certifications = [
     name: "MongoDB Associate Developer",
     issuer: "MongoDB University",
     date: "Issued: 2025",
-    skills: ["Schema Design", "Aggregation Framework", "CRUD Operations", "Indexing and Query Optimization", "Data Modeling in NoSQL"],
+    skills: ["Schema Design", "Aggregation Framework", "CRUD Operations"],
     logo: "/images/mongo1 (2).png",
     url: "https://ti-user-certificates.s3.amazonaws.com/ae62dcd7-abdc-4e90-a570-83eccba49043/43e85547-5fe5-42d4-bee2-63daf5f795b3-maheshkumar-k-s-654a2ab1-ec73-4efe-bbee-4eeb4104e960-certificate.pdf"
   },
@@ -26,7 +26,7 @@ const certifications = [
     name: "Oracle APEX Cloud Developer Certified Professional",
     issuer: "Oracle",
     date: "Issued: 2025",
-    skills: ["Cloud Application Development", "PL/SQL Programming", "Low Code UI Design", "Database Integration", "APEX Workspace and Deployment"],
+    skills: ["Cloud Application", "PL/SQL Programming", "Database Integration"],
     logo: "/images/oracle1.png",
     url: "https://brm-certview.oracle.com/ords/certview/ecertificate?ssn=OC6065665&trackId=APEX24CDOCP&key=8eca8b2a4c418ad396ef9d1666c5cff1fd8ffb9d"
   }
@@ -104,13 +104,13 @@ const Certifications = () => {
                     <h4 className="text-base font-sans font-semibold text-gray-300 mb-2">
                       <span className="font-bold">Skills</span>
                     </h4>
-                    <div className="flex flex-wrap gap-1">
+                    <div className="flex flex-wrap gap-2">
                       {cert.skills.map((skill, skillIndex) => (
                         <React.Fragment key={skillIndex}>
                           <span className="px-2 py-1 bg-transparent rounded-md text-xs md:text-sm font-sans font-medium text-gray-200">
                             {skill}
                           </span>
-                          {skillIndex < cert.skills.length - 1 && <span className="text-gray-200">,</span>}
+                          {skillIndex < cert.skills.length - 1 && <span className="text-gray-200">, </span>}
                         </React.Fragment>
                       ))}
                     </div>
