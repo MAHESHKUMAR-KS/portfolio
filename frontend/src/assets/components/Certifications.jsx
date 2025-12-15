@@ -1,6 +1,5 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import SpotlightCard from './SpotlightCard';
 
 const certifications = [
   {
@@ -34,13 +33,13 @@ const certifications = [
 
 const Certifications = () => {
   return (
-    <section id="certifications" className="min-h-screen bg-transparent text-white py-20 md:py-28 relative">
-      <div className="container mx-auto px-4 max-w-6xl relative z-10">
+    <section id="certifications" className="min-h-screen bg-transparent text-white py-16 md:py-20 lg:py-28 relative">
+      <div className="container mx-auto px-4 sm:px-6 max-w-6xl relative z-10">
         <motion.h2 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="font-sans font-extrabold text-4xl md:text-5xl lg:text-6xl mb-14 text-transparent bg-clip-text bg-gradient-to-r from-[#4ade80] via-[#22d3ee] to-[#4ade80] leading-tight tracking-tight drop-shadow-lg text-center"
+          className="font-sans font-extrabold text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-10 md:mb-14 text-transparent bg-clip-text bg-gradient-to-r from-[#4ade80] via-[#22d3ee] to-[#4ade80] leading-tight tracking-tight drop-shadow-lg text-center"
           style={{
             textShadow: "0 0 15px rgba(74, 222, 128, 0.3)"
           }}
@@ -48,38 +47,32 @@ const Certifications = () => {
           My Certifications
         </motion.h2>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {certifications.map((cert, index) => (
             <motion.div
               key={cert.id}
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="w-full group"
+              className="w-full"
             >
-              <SpotlightCard className="h-full bg-transparent border border-green-500/60 rounded-2xl backdrop-blur-md shadow-lg hover:shadow-green-500/40 transition-all duration-300 flex flex-col group-hover:shadow-xl group-hover:shadow-green-500/30 md:hover:shadow-green-500/40 md:group-hover:shadow-xl md:group-hover:shadow-green-500/30">
-                <div className="p-5 md:p-6 flex flex-col h-full">
-                  {/* Top Section - Certification Info */}
-                  <div className="mb-5 md:mb-6">
-                    <div className="flex justify-between items-start mb-3 md:mb-4">
-                      <div>
-                        <h3 className="text-lg md:text-xl font-sans font-bold text-white mb-1">{cert.name}</h3>
-                        <p className="text-gray-400 text-sm">{cert.issuer}</p>
-                      </div>
-                      <span className="text-xs text-gray-500 whitespace-nowrap">{cert.date}</span>
-                    </div>
-                  </div>
-                  
-                  {/* Middle Section - Certification Logo */}
-                  <div className="flex justify-center items-center mb-5 md:mb-6 flex-grow">
+              {/* Solid matte black certification card with sharp edges and darker glow effect */}
+              <div className="relative h-full group">
+                <div className="absolute -inset-0.5 bg-green-500 rounded-none blur opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+                <div className="bg-black border border-gray-800 rounded-none p-6 sm:p-8 h-full flex flex-col relative">
+                  {/* Certification header */}
+                  <div className="mb-6 sm:mb-8">
+                    <h3 className="font-sans font-bold text-white text-xl sm:text-2xl mb-2 sm:mb-3">{cert.name}</h3>
+                    <p className="text-gray-400 text-base sm:text-lg mb-4 sm:mb-6">{cert.issuer}</p>
+                    {/* Logo positioned below the name */}
                     {cert.id === 1 || cert.id === 2 || cert.id === 3 ? (
                       <img 
                         src={cert.logo} 
                         alt={cert.name}
                         className={
-                          cert.id === 2 ? "w-36 h-36 md:w-48 md:h-48 object-contain" : 
-                          cert.id === 3 ? "w-32 h-32 md:w-44 md:h-44 object-contain" : 
-                          "w-28 h-28 md:w-36 md:h-36 object-contain"
+                          cert.id === 2 ? "w-24 h-24 sm:w-32 sm:h-32 object-contain mx-auto" : 
+                          cert.id === 3 ? "w-20 h-20 sm:w-28 sm:h-28 object-contain mx-auto" : 
+                          "w-20 h-20 sm:w-24 sm:h-24 object-contain mx-auto"
                         }
                         onError={(e) => {
                           e.target.onerror = null;
@@ -93,42 +86,40 @@ const Certifications = () => {
                         }}
                       />
                     ) : (
-                      <div className="bg-gray-200 border-2 border-dashed rounded-xl w-28 h-28 md:w-36 md:h-36 flex items-center justify-center">
-                        <span className="text-gray-500 text-sm text-center">Certification Logo</span>
-                      </div>
+                      <div className="bg-gray-200 border-2 border-dashed rounded-xl w-20 h-20 sm:w-24 sm:h-24 mx-auto" />
                     )}
                   </div>
                   
-                  {/* Bottom Section - Skills */}
-                  <div className="mt-auto">
-                    <h4 className="text-base font-sans font-semibold text-gray-300 mb-2">
-                      <span className="font-bold">Skills</span>
-                    </h4>
-                    <div className="flex flex-wrap gap-2">
-                      {cert.skills.map((skill, skillIndex) => (
-                        <React.Fragment key={skillIndex}>
-                          <span className="px-2 py-1 bg-transparent rounded-md text-xs md:text-sm font-sans font-medium text-gray-200">
-                            {skill}
-                          </span>
-                          {skillIndex < cert.skills.length - 1 && <span className="text-gray-200">, </span>}
-                        </React.Fragment>
-                      ))}
+                  {/* Skills section */}
+                  <div className="mb-6 sm:mb-8">
+                    <h4 className="font-sans font-semibold text-gray-300 text-base sm:text-lg mb-3 sm:mb-4">Skills</h4>
+                    <div className="text-gray-200 text-base sm:text-lg">
+                      {cert.skills.join(', ')}
                     </div>
                   </div>
-
-                  {/* View Certificate Button */}
-                  <motion.a
-                    whileHover={{ scale: 1.03 }}
-                    whileTap={{ scale: 0.98 }}
-                    href={cert.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 bg-transparent border border-teal-500/50 text-white font-sans font-medium py-2 px-4 rounded-lg w-full mt-5 md:mt-6 transition-all duration-300 hover:bg-teal-500/10 hover:border-teal-400 hover:shadow-lg hover:shadow-teal-500/40 text-sm md:text-base group-hover:shadow-lg group-hover:shadow-teal-500/30 md:hover:bg-teal-500/10 md:hover:border-teal-400 md:hover:shadow-lg md:hover:shadow-teal-500/40 md:group-hover:shadow-lg md:group-hover:shadow-teal-500/30"
-                  >
-                    <span>View Certificate</span>
-                  </motion.a>
+                  
+                  {/* Date and action link */}
+                  <div className="mt-auto flex justify-between items-center pt-6 sm:pt-8 border-t border-gray-800">
+                    <div className="flex items-center text-gray-500 text-base sm:text-lg">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 sm:h-6 sm:w-6 mr-2 sm:mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                      </svg>
+                      <span>{cert.date.replace('Issued: ', '')}</span>
+                    </div>
+                    <a 
+                      href={cert.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-green-500 hover:text-green-400 text-base sm:text-lg font-medium flex items-center"
+                    >
+                      View Credential
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 sm:h-6 sm:w-6 ml-2 sm:ml-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      </svg>
+                    </a>
+                  </div>
                 </div>
-              </SpotlightCard>
+              </div>
             </motion.div>
           ))}
         </div>
