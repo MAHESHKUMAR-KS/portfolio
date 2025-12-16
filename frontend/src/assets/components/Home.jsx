@@ -1,6 +1,7 @@
 import React from 'react';
 import AnimatedLogo from './AnimatedLogo';
 import SocialMediaIcons from './SocialMediaIcons';
+import ShinyText from './ShinyText'; // Import the ShinyText component
 
 const Home = () => (
   <section id="home" className="bg-transparent text-white min-h-screen flex items-center justify-center">
@@ -11,9 +12,12 @@ const Home = () => (
       <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">
         Mahesh Kumar KS
       </h2>
-      <h3 className="text-xl md:text-2xl font-semibold mb-6 md:mb-8 text-green-500">
-        AI & DS Student
-      </h3>
+      {/* Example usage of ShinyText component */}
+      <ShinyText 
+        text="AI & DS Student" 
+        className="text-xl md:text-2xl font-semibold mb-6 md:mb-8" 
+        speed={3}
+      />
       <button 
         className="bg-green-500 text-white py-2 px-6 rounded-full mb-6 md:mb-8 w-max hover:bg-green-600 transition-colors duration-300"
         onClick={() => {

@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import Dock from './Dock';
 import GlareHover from './GlareHover';
 import { VscHome, VscArchive, VscAccount } from 'react-icons/vsc';
+import ShinyText from './ShinyText.jsx'; // Import the ShinyText component
 
 const projects = [
   {
@@ -77,7 +78,11 @@ const Projects = () => {
             textShadow: "0 0 15px rgba(74, 222, 128, 0.3)"
           }}
         >
-          My Projects
+          <ShinyText 
+            text="My Projects" 
+            className="inline"
+            speed={3}
+          />
         </motion.h2>
         
         {/* Dock Component - Positioned at top */}
@@ -156,7 +161,13 @@ const Projects = () => {
                     </span>
                   </div>
                   
-                  <h3 className="text-xl md:text-2xl font-sans font-extrabold mb-2 md:mb-3 text-white tracking-tight transition-all duration-300 hover:text-green-400 hover:drop-shadow-[0_0_8px_rgba(74,222,128,0.4)]">{project.title}</h3>
+                  <h3 className="text-xl md:text-2xl font-sans font-extrabold mb-2 md:mb-3 text-white tracking-tight transition-all duration-300 hover:text-green-400 hover:drop-shadow-[0_0_8px_rgba(74,222,128,0.4)]">
+                    <ShinyText 
+                      text={project.title} 
+                      className="inline"
+                      speed={4}
+                    />
+                  </h3>
                   
                   <div className="flex flex-wrap gap-1.5 md:gap-2 mb-4 md:mb-5">
                     {project.technologies.map((tech, techIndex) => (
@@ -170,7 +181,12 @@ const Projects = () => {
                   </div>
                   
                   <p className="mb-4 md:mb-6 text-gray-300 leading-relaxed flex-grow font-sans font-medium text-sm md:text-base">
-                    {project.description}
+                    <ShinyText 
+                      text={project.description} 
+                      className="inline"
+                      speed={5}
+                      disabled={false}
+                    />
                   </p>
                   
                   <motion.a

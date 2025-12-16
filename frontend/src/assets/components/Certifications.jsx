@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import ShinyText from './ShinyText.jsx'; // Import the ShinyText component
 
 const certifications = [
   {
@@ -44,7 +45,11 @@ const Certifications = () => {
             textShadow: "0 0 15px rgba(74, 222, 128, 0.3)"
           }}
         >
-          My Certifications
+          <ShinyText 
+            text="My Certifications" 
+            className="inline"
+            speed={3}
+          />
         </motion.h2>
         
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
@@ -62,8 +67,20 @@ const Certifications = () => {
                 <div className="bg-black border border-gray-800 rounded-none p-6 sm:p-8 h-full flex flex-col relative">
                   {/* Certification header */}
                   <div className="mb-6 sm:mb-8">
-                    <h3 className="font-sans font-bold text-white text-xl sm:text-2xl mb-2 sm:mb-3">{cert.name}</h3>
-                    <p className="text-gray-400 text-base sm:text-lg mb-4 sm:mb-6">{cert.issuer}</p>
+                    <h3 className="font-sans font-bold text-white text-xl sm:text-2xl mb-2 sm:mb-3">
+                      <ShinyText 
+                        text={cert.name} 
+                        className="inline"
+                        speed={4}
+                      />
+                    </h3>
+                    <p className="text-gray-400 text-base sm:text-lg mb-4 sm:mb-6">
+                      <ShinyText 
+                        text={cert.issuer} 
+                        className="inline"
+                        speed={4}
+                      />
+                    </p>
                     {/* Logo positioned below the name */}
                     {cert.id === 1 || cert.id === 2 || cert.id === 3 ? (
                       <img 
@@ -92,9 +109,19 @@ const Certifications = () => {
                   
                   {/* Skills section */}
                   <div className="mb-6 sm:mb-8">
-                    <h4 className="font-sans font-semibold text-gray-300 text-base sm:text-lg mb-3 sm:mb-4">Skills</h4>
+                    <h4 className="font-sans font-semibold text-gray-300 text-base sm:text-lg mb-3 sm:mb-4">
+                      <ShinyText 
+                        text="Skills" 
+                        className="inline"
+                        speed={4}
+                      />
+                    </h4>
                     <div className="text-gray-200 text-base sm:text-lg">
-                      {cert.skills.join(', ')}
+                      <ShinyText 
+                        text={cert.skills.join(', ')} 
+                        className="inline"
+                        speed={5}
+                      />
                     </div>
                   </div>
                   
@@ -104,7 +131,13 @@ const Certifications = () => {
                       <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 sm:h-6 sm:w-6 mr-2 sm:mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                       </svg>
-                      <span>{cert.date.replace('Issued: ', '')}</span>
+                      <span>
+                        <ShinyText 
+                          text={cert.date.replace('Issued: ', '')} 
+                          className="inline"
+                          speed={5}
+                        />
+                      </span>
                     </div>
                     <a 
                       href={cert.url}

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import LogoLoop from './LogoLoop.jsx';
+import ShinyText from './ShinyText.jsx'; // Import the ShinyText component
 
 const About = () => {
   const [selectedSkill, setSelectedSkill] = useState(null);
@@ -156,16 +157,24 @@ const About = () => {
                   variants={fadeSlideItem}
                   className="font-inter font-medium text-lg md:text-xl leading-relaxed tracking-wide text-gray-200 mb-6"
                 >
-                  Hi there! I'm Mahesh Kumar, a Full Stack Developer passionate about creating efficient and scalable web solutions.
-                  With a strong foundation in both front-end and back-end development, I specialize in building modern, responsive web applications.
+                  <ShinyText 
+                    text="Hi there! I'm Mahesh Kumar, a Full Stack Developer passionate about creating efficient and scalable web solutions. With a strong foundation in both front-end and back-end development, I specialize in building modern, responsive web applications."
+                    className="inline"
+                    speed={4}
+                    disabled={false}
+                  />
                 </motion.p>
 
                 <motion.p
                   variants={fadeSlideItem}
                   className="font-inter font-medium text-lg md:text-xl leading-relaxed tracking-wide text-gray-200"
                 >
-                  I work extensively with React.js, Node.js, and various modern web technologies to create seamless user experiences.
-                  My focus is on writing clean, maintainable code and implementing best practices in web development.
+                  <ShinyText 
+                    text="I work extensively with React.js, Node.js, and various modern web technologies to create seamless user experiences. My focus is on writing clean, maintainable code and implementing best practices in web development."
+                    className="inline"
+                    speed={4}
+                    disabled={false}
+                  />
                 </motion.p>
               </motion.div>
 

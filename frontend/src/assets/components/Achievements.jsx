@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import SpotlightCard from './SpotlightCard';
+import ShinyText from './ShinyText.jsx'; // Import the ShinyText component
 
 const Achievements = () => {
   const achievements = [
@@ -36,7 +37,11 @@ const Achievements = () => {
             textShadow: "0 0 15px rgba(74, 222, 128, 0.3)"
           }}
         >
-          My Achievements
+          <ShinyText 
+            text="My Achievements" 
+            className="inline"
+            speed={3}
+          />
         </motion.h2>
         
         <div className="flex flex-col gap-8 justify-center items-center">
@@ -66,19 +71,40 @@ const Achievements = () => {
                   {/* Achievement Content */}
                   <div className="flex-grow">
                     <h3 className="text-2xl font-sans font-extrabold mb-3 text-white tracking-tight transition-all duration-300 hover:text-green-400 hover:drop-shadow-[0_0_8px_rgba(74,222,128,0.4)] md:hover:text-green-400 md:hover:drop-shadow-[0_0_8px_rgba(74,222,128,0.4)]">
-                      {achievement.title}
+                      <ShinyText 
+                        text={achievement.title} 
+                        className="inline"
+                        speed={4}
+                      />
                     </h3>
                     
-                    <p className="text-gray-400 text-sm mb-4">{achievement.issuer}</p>
+                    <p className="text-gray-400 text-sm mb-4">
+                      <ShinyText 
+                        text={achievement.issuer} 
+                        className="inline"
+                        speed={4}
+                      />
+                    </p>
                     
                     <p className="mb-6 text-gray-300 leading-relaxed flex-grow font-sans font-medium text-base whitespace-pre-line">
-                      {achievement.description}
+                      <ShinyText 
+                        text={achievement.description} 
+                        className="inline"
+                        speed={5}
+                        disabled={false}
+                      />
                     </p>
                   </div>
                   
                   {/* Footer with Date and Links */}
                   <div className="flex justify-between items-center mt-6 pt-4 border-t border-gray-700/50">
-                    <span className="text-sm text-gray-500">{achievement.date}</span>
+                    <span className="text-sm text-gray-500">
+                      <ShinyText 
+                        text={achievement.date} 
+                        className="inline"
+                        speed={5}
+                      />
+                    </span>
                     <div className="flex gap-2">
                       {achievement.certificateUrl && (
                         <motion.a
