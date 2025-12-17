@@ -38,6 +38,15 @@ const projects = [
     image: "/images/project4.jpg",
     category: "AI&ML"
   },
+  // New project added here
+  {
+    title: "Smart Wealth Investment",
+    description: "WealthyWise Professional is an advanced mutual fund advisory platform designed to provide data-driven investment recommendations with AI-powered insights. The platform offers a comprehensive suite of tools for informed investment decision-making, analyzing over 800 mutual funds to deliver scientific risk profiling and personalized portfolio recommendations. The platform distinguishes itself through its AI-enhanced features that go beyond traditional robo-advisors by incorporating machine learning models for more accurate risk assessment and fund performance prediction. Rather than providing random suggestions, the system uses scientific methodologies to analyze user behavior patterns and market data.",
+    github: "https://github.com/MAHESHKUMAR-KS/smart-wealth.git",
+    technologies: ["Streamlit", "Plotly", "Pandas", "NumPy", "Scikit-learn", "Random Forest", "K-Means"],
+    image: "/images/project5.jpg",
+    category: "AI&ML"
+  }
 ];
 
 const Projects = () => {
@@ -61,7 +70,7 @@ const Projects = () => {
     },
     { 
       icon: <VscAccount size={18} />, 
-      label: 'AI/ML', 
+      label: 'AI&ML', 
       onClick: () => setFilter("AI&ML") 
     },
   ];
