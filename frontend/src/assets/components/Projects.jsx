@@ -7,6 +7,7 @@ import ShinyText from './ShinyText.jsx'; // Import the ShinyText component
 
 const projects = [
   {
+    id: 1,
     title: "Career Guidance App",
     description: "carrier-gudience-app helps students discover colleges and scholarships that fit their academic profile. Users can create a profile, view recommended colleges based on exam scores and cutoffs, search the college dataset, check eligibility for different engineering/college exams, and explore curated scholarships gathered by scrapers. The app includes a chatbot interface for quick guidance, Google sign-in for authentication, and an admin-friendly backend that stores colleges, cutoffs, careers and scholarships in a MongoDB database. Scrapers and seed scripts keep scholarship and college data up to date.",
     github: "https://github.com/MAHESHKUMAR-KS/Carrier-guidence-app",
@@ -15,6 +16,7 @@ const projects = [
     category: "Full Stack"
   },
   {
+    id: 2,
     title: "Cems App",
     description: "Fest Assist (College Event Management System) is a modern full-stack application designed to streamline event organization and participation on campus. The frontend is a TypeScript React app scaffolded with Vite and styled using Tailwind CSS and shadcn-ui components; it uses a component-driven UI with Radix-based primitives, animations via Framer Motion, and interactive widgets (carousel, charts, OTP input). The backend is a REST API built with Express and Mongoose, secured with JWTs and password hashing (bcryptjs), and provides endpoints for authentication, event CRUD, registration/unregistration, and a local chatbot feature to query events and history. The project includes seeding scripts, environment-based configuration, and scripts for development and production builds. Typical flows include user signup/login, event creation by event-members, student registrations, admin moderation, and conversational FAQs via the chatbot.",
     github: "https://github.com/MAHESHKUMAR-KS/cems-app",
@@ -23,6 +25,7 @@ const projects = [
     category: "Full Stack"
   },
   {
+    id: 3,
     title: "Pneumonia Detection",
     description: "A medical imaging pipeline that uses transfer learning (VGG16) to classify chest X-rays as NORMAL or PNEUMONIA. The project includes data augmentation, class-weighted training to mitigate class imbalance, evaluation and visualization tools for misclassified samples, utilities to convert and save models, and a Streamlit web app for interactive predictions. Features preprocessing and augmentation, frozen ImageNet VGG16 backbone, custom top layers with L2 regularization and Dropout, callbacks (EarlyStopping, ModelCheckpoint, ReduceLROnPlateau, LR scheduler), and a Streamlit UI for demo and batch predictions.",
     github: "https://github.com/MAHESHKUMAR-KS/pnemonia-detection",
@@ -31,6 +34,7 @@ const projects = [
     category: "AI&ML"
   },
   {
+    id: 4,
     title: "Fake News Detection",
     description: "This project trains a text-classification pipeline on public news datasets (contains Fake.csv and True.csv) to detect fake news. The model uses text normalization, combined word and character hashing features with TF-IDF, and an SGDClassifier (log loss) to produce calibrated probability scores; training artifacts and evaluation metrics are saved to metrics.json and model_pipeline.pkl. A lightweight Streamlit app (app.py) loads the pipeline to provide single-text and CSV batch predictions with an adjustable probability threshold for sensitivity control.",
     github: "https://github.com/MAHESHKUMAR-KS/fake-news-predection",
@@ -40,6 +44,7 @@ const projects = [
   },
   // New project added here
   {
+    id: 5,
     title: "Smart Wealth Investment",
     description: "WealthyWise Professional is an advanced mutual fund advisory platform designed to provide data-driven investment recommendations with AI-powered insights. The platform offers a comprehensive suite of tools for informed investment decision-making, analyzing over 800 mutual funds to deliver scientific risk profiling and personalized portfolio recommendations. The platform distinguishes itself through its AI-enhanced features that go beyond traditional robo-advisors by incorporating machine learning models for more accurate risk assessment and fund performance prediction. Rather than providing random suggestions, the system uses scientific methodologies to analyze user behavior patterns and market data.",
     github: "https://github.com/MAHESHKUMAR-KS/smart-wealth.git",
@@ -197,25 +202,25 @@ const Projects = () => {
                       disabled={false}
                     />
                   </p>
-                  
-                  <motion.a
-                    whileHover={{ scale: 1.03 }}
-                    whileTap={{ scale: 0.98 }}
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 md:gap-3 bg-transparent border border-teal-500/50 text-white font-sans font-bold py-2.5 md:py-3 px-4 md:px-6 rounded-xl w-full justify-center transition-all duration-300 hover:bg-teal-500/10 hover:border-teal-400 hover:shadow-lg hover:shadow-teal-500/40 mt-auto text-sm md:text-base group-hover:shadow-lg group-hover:shadow-green-500/30"
-                  >
-                    <svg 
-                      xmlns="http://www.w3.org/2000/svg" 
-                      className="h-4 w-4 md:h-5 md:w-5" 
-                      viewBox="0 0 20 20" 
-                      fill="currentColor"
+                  <div className="flex justify-between items-center mt-6 pt-4 border-t border-gray-700/50">
+                    <span className="text-sm text-gray-500">{project.id === 5 ? '2024' : '2025'}</span>
+                    <a 
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-green-500 hover:text-green-400 text-base sm:text-lg font-medium flex items-center"
                     >
-                      <path fillRule="evenodd" d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z" clipRule="evenodd" />
-                    </svg>
-                    <span>View on GitHub</span>
-                  </motion.a>
+                      <svg 
+                        xmlns="http://www.w3.org/2000/svg" 
+                        className="h-5 w-5 sm:h-6 sm:w-6 mr-2 sm:mr-3" 
+                        viewBox="0 0 20 20" 
+                        fill="currentColor"
+                      >
+                        <path fillRule="evenodd" d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z" clipRule="evenodd" />
+                      </svg>
+                      View on GitHub
+                    </a>
+                  </div>
                 </div>
               </GlareHover>
             </motion.div>
