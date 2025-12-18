@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import ShinyText from './ShinyText.jsx'; // Import the ShinyText component
+import ShinyText from './ShinyText.jsx'; 
 
 const certifications = [
   {
