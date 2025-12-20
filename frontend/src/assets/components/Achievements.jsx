@@ -1,7 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import SpotlightCard from './SpotlightCard';
-import ShinyText from './ShinyText.jsx'; // Import the ShinyText component
+import ShinyText from './ShinyText.jsx';
+
 
 const Achievements = () => {
   const achievements = [

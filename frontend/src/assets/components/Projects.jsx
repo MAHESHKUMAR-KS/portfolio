@@ -3,7 +3,8 @@ import { motion } from "framer-motion";
 import Dock from './Dock';
 import GlareHover from './GlareHover';
 import { VscHome, VscArchive, VscAccount } from 'react-icons/vsc';
-import ShinyText from './ShinyText.jsx'; // Import the ShinyText component
+import ShinyText from './ShinyText.jsx';
+
 
 const projects = [
   {
@@ -194,14 +195,14 @@ const Projects = () => {
                     ))}
                   </div>
                   
-                  <p className="mb-4 md:mb-6 text-gray-300 leading-relaxed flex-grow font-sans font-medium text-sm md:text-base">
+                  <div className="mb-4 md:mb-6 text-gray-300 leading-relaxed flex-grow font-sans font-medium text-sm md:text-base">
                     <ShinyText 
                       text={project.description} 
                       className="inline"
                       speed={5}
                       disabled={false}
                     />
-                  </p>
+                  </div>
                   <div className="flex justify-between items-center mt-6 pt-4 border-t border-gray-700/50">
                     <span className="text-sm text-gray-500">{project.id === 5 ? '2024' : '2025'}</span>
                     <a 

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import ShinyText from './ShinyText.jsx'; // Import the ShinyText component
+import ShinyText from './ShinyText.jsx';
+
 
 const Contact = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -144,13 +145,13 @@ const Contact = () => {
                         speed={4}
                       />
                     </h4>
-                    <p className="text-gray-300">
+                    <div className="text-gray-300">
                       <ShinyText 
                         text="Salem, Tamil Nadu, India" 
                         className="inline"
                         speed={5}
                       />
-                    </p>
+                    </div>
                   </div>
                 </div>
 

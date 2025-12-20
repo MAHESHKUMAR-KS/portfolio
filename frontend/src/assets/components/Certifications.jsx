@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import ShinyText from './ShinyText.jsx'; 
+import ShinyText from './ShinyText.jsx';
+
 
 const certifications = [
   {
@@ -74,13 +75,13 @@ const Certifications = () => {
                         speed={4}
                       />
                     </h3>
-                    <p className="text-gray-400 text-base sm:text-lg mb-4 sm:mb-6">
+                    <div className="text-gray-400 text-base sm:text-lg mb-4 sm:mb-6">
                       <ShinyText 
                         text={cert.issuer} 
                         className="inline"
                         speed={4}
                       />
-                    </p>
+                    </div>
                     {/* Logo positioned below the name */}
                     {cert.id === 1 || cert.id === 2 || cert.id === 3 ? (
                       <img 
