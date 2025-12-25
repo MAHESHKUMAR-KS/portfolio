@@ -43,7 +43,7 @@ const projects = [
     image: "/images/project4.jpg",
     category: "AI&ML"
   },
-  // New project added here
+ 
   {
     id: 5,
     title: "Smart Wealth Investment",
