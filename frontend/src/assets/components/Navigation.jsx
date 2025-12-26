@@ -66,7 +66,7 @@ const Navigation = () => {
     { id: "contact", label: "Contact", to: "#contact" },
   ];
 
-  // Function to close mobile menu when a link is clicked
+ 
   const handleLinkClick = (to) => {
     setMobileMenuOpen(false);
     
