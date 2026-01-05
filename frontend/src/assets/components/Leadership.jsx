@@ -76,7 +76,7 @@ const Leadership = () => {
       );
     }
     
-    // For ID 3, use the IEF image
+    
     if (id === 3) {
       return (
         <div className="w-16 h-16 rounded-full flex items-center justify-center shadow-xl overflow-hidden border-2 border-white/30 backdrop-blur-sm bg-white">
@@ -89,7 +89,7 @@ const Leadership = () => {
       );
     }
     
-    // For other IDs, use the gradient circles (fallback)
+    
     const colors = [
       "bg-gradient-to-br from-blue-500 to-purple-600",
       "bg-gradient-to-br from-green-500 to-teal-600",
