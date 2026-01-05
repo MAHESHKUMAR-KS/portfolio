@@ -12,7 +12,7 @@ const Footer = () => {
             <SocialMediaIcons className="justify-start text-sm md:text-base" />
           </div>
           
-          {/* Center - Text with React Icon */}
+         
           <div className="flex items-center justify-center text-sm md:text-base">
             <span className="mr-1 md:mr-2">This website was made with</span>
             <FaReact className="text-blue-400 animate-pulse text-sm md:text-base" />
