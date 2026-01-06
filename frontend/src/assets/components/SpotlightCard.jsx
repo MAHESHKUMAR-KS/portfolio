@@ -16,7 +16,7 @@ const SpotlightCard = ({ children, className = '', spotlightColor = 'rgba(255, 2
         (navigator.msMaxTouchPoints > 0);
       setIsMobile(mobileCheck);
       
-      // On mobile, show glow effect by default when component mounts
+      
       if (mobileCheck) {
         setOpacity(0.6);
         // Set position to center of card
