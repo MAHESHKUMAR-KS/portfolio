@@ -19,7 +19,7 @@ const SpotlightCard = ({ children, className = '', spotlightColor = 'rgba(255, 2
       
       if (mobileCheck) {
         setOpacity(0.6);
-        // Set position to center of card
+        
         if (divRef.current) {
           const rect = divRef.current.getBoundingClientRect();
           setPosition({ x: rect.width / 2, y: rect.height / 2 });
