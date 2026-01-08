@@ -36,7 +36,7 @@ const SpotlightCard = ({ children, className = '', spotlightColor = 'rgba(255, 2
   }, []);
 
   const handleMouseMove = e => {
-    // Don't handle mouse move on mobile devices
+   
     if (isMobile) return;
     
     if (!divRef.current || isFocused) return;
