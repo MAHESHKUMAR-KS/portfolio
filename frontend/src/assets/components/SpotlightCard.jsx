@@ -7,7 +7,7 @@ const SpotlightCard = ({ children, className = '', spotlightColor = 'rgba(255, 2
   const [opacity, setOpacity] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
 
-  // Check if device is mobile/tablet
+
   useEffect(() => {
     const checkIsMobile = () => {
       const mobileCheck = window.innerWidth <= 768 || 
