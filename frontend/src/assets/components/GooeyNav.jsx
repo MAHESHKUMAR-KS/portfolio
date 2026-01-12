@@ -128,7 +128,7 @@ const GooeyNav = ({
       const li = navRef.current?.querySelectorAll('li')[idx];
       if (li) updateEffectPosition(li);
       if (lastTriggeredRef.current === activeId) {
-        // Skip duplicate animation immediately after a click-trigger
+        
         lastTriggeredRef.current = null;
       } else {
         if (filterRef.current) {
