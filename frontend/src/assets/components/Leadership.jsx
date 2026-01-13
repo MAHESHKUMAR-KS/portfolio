@@ -50,7 +50,7 @@ const Leadership = () => {
 
  
   const generateLogo = (text, index, id) => {
-    // For ID 1, use the specific image
+    
     if (id === 1) {
       return (
         <div className="w-16 h-16 rounded-full flex items-center justify-center shadow-xl overflow-hidden border-2 border-white/30 backdrop-blur-sm bg-white">
