@@ -63,7 +63,7 @@ const Leadership = () => {
       );
     }
     
-    // For ID 2, use the CSI image
+    
     if (id === 2) {
       return (
         <div className="w-16 h-16 rounded-full flex items-center justify-center shadow-xl overflow-hidden border-2 border-white/30 backdrop-blur-sm bg-white">
