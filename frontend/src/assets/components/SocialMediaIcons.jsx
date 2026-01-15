@@ -36,7 +36,7 @@ const allIcons = [
 ];
 
 const SocialMediaIcons = ({ className = "", showInstagram = true }) => {
-  // Filter out Instagram if showInstagram is false
+  
   const icons = showInstagram 
     ? allIcons 
     : allIcons.filter(icon => icon.name !== 'Instagram');

@@ -16,7 +16,7 @@ import Footer from './assets/components/Footer';
 // import Projects from './sections/Projects/Projects';
 
 function App() {
-  // Smooth scroll to top on page load
+ 
   useEffect(() => {
     scroll.scrollToTop({
       duration: 1000,
