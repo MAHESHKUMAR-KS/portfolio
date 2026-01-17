@@ -57,7 +57,7 @@ const SpotlightCard = ({ children, className = '', spotlightColor = 'rgba(255, 2
   };
 
   const handleMouseEnter = () => {
-    // Don't change opacity on mobile devices
+   
     if (isMobile) return;
     setOpacity(0.6);
   };
