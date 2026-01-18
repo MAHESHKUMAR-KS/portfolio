@@ -52,7 +52,7 @@ const SpotlightCard = ({ children, className = '', spotlightColor = 'rgba(255, 2
 
   const handleBlur = () => {
     setIsFocused(false);
-    // On mobile, keep glow effect; on desktop, remove it
+    
     setOpacity(isMobile ? 0.6 : 0);
   };
 
