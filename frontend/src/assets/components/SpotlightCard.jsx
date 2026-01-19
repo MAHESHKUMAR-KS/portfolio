@@ -69,7 +69,7 @@ const SpotlightCard = ({ children, className = '', spotlightColor = 'rgba(255, 2
   };
 
   const handleTouchStart = () => {
-    // Ensure glow is visible on touch
+    
     setOpacity(0.6);
     // Set position to touch point if we can get it
     if (divRef.current) {
