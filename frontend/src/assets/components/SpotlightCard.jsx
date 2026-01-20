@@ -71,7 +71,7 @@ const SpotlightCard = ({ children, className = '', spotlightColor = 'rgba(255, 2
   const handleTouchStart = () => {
     
     setOpacity(0.6);
-    // Set position to touch point if we can get it
+   
     if (divRef.current) {
       const rect = divRef.current.getBoundingClientRect();
       setPosition({ x: rect.width / 2, y: rect.height / 2 });
