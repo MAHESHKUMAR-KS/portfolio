@@ -58,7 +58,7 @@ const projects = [
 const Projects = () => {
   const [filter, setFilter] = useState("All");
 
-  // Filter projects based on selected category
+ 
   const filteredProjects = filter === "All" 
     ? projects 
     : projects.filter(project => project.category === filter);
