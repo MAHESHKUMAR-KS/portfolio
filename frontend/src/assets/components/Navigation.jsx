@@ -119,7 +119,7 @@ const Navigation = () => {
 
               {/* Resume Button */}
               <a
-                href="/resume.pdf"
+                href="/resume.pdf?v=20260802"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 text-white hover:text-blue-400 transition-colors"
@@ -160,7 +160,7 @@ const Navigation = () => {
                   
                   {/* Resume Button for mobile */}
                   <a
-                    href="/resume.pdf"
+                    href="/resume.pdf?v=20260802"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-2 text-white hover:text-blue-400 transition-colors text-xl"
